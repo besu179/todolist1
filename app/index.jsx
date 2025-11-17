@@ -1,10 +1,8 @@
 import { useRouter } from "expo-router";
-import React, { useEffect, useState } from "react";
-import { FlatList, StyleSheet, TouchableOpacity, View } from "react-native";
+
+import {StyleSheet, View } from "react-native";
 import CustomButton from "../components/Button";
-import CustomCard from "../components/Card";
-import CustomInputText from "../components/InputText";
-import CustomText from "../components/Text";
+
 
 
 function Index() {
