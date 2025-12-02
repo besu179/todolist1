@@ -1,7 +1,9 @@
 import { StyleSheet, Text } from "react-native";
 
 const CustomText = ({ children, style, variant = "body", ...props }) => {
-  const variantStyle = styles[variant] || styles.body;
+  // Handle case-insensitive variant matching
+  const variantKey = variant?.toLowerCase() || "body";
+  const variantStyle = styles[variantKey] || styles.body;
   return (
     <Text style={[variantStyle, style]} {...props}>
       {children}
