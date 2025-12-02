@@ -6,7 +6,7 @@ export default function RootLayout() {
   return (
     <TasksProvider>
       <StatusBar style="auto" />
-      <Stack />
+      <Stack screenOptions={{ headerShown: false }} />
     </TasksProvider>
   );
 }

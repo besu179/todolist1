@@ -1,4 +1,5 @@
 import { StyleSheet, View } from "react-native";
+import { Colors } from "../constants/Colors";
 
 const CustomCard = ({ children, style, ...props }) => (
   <View style={[styles.card, style]} {...props}>
@@ -8,11 +9,11 @@ const CustomCard = ({ children, style, ...props }) => (
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: "#f9f9f9",
+    backgroundColor: Colors.white,
     borderRadius: 8,
     padding: 16,
     marginVertical: 8,
-    shadowColor: "#000",
+    shadowColor: Colors.shadow,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,

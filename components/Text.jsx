@@ -1,4 +1,5 @@
 import { StyleSheet, Text } from "react-native";
+import { Colors } from "../constants/Colors";
 
 const CustomText = ({ children, style, variant = "body", ...props }) => {
   // Handle case-insensitive variant matching
@@ -15,18 +16,17 @@ const styles = StyleSheet.create({
   h1: {
     fontSize: 28,
     fontWeight: "700",
-    color: "#ece9f3ff",
+    color: Colors.white,
   },
   h2: {
     fontSize: 18,
     fontWeight: "600",
-    color: "#222",
+    color: Colors.text.primary,
   },
   body: {
     fontSize: 16,
-    color: "#333",
+    color: Colors.text.tertiary,
   },
-
 });
 
 export default CustomText;

@@ -6,6 +6,7 @@ import { FlatList, ScrollView, StyleSheet, TouchableOpacity, View } from "react-
 import CustomCard from "../components/Card";
 import CustomInputText from "../components/InputText";
 import CustomText from "../components/Text";
+import { Colors } from "../constants/Colors";
 import { useTasks } from "./TasksContext";
 
 function Index() {
@@ -66,7 +67,7 @@ function Index() {
             <HugeiconsIcon
               icon={Notification01Icon}
               size={22}
-              color="#2563eb"
+              color={Colors.primary}
               strokeWidth={1.5}
             />
           </View>
@@ -80,7 +81,7 @@ function Index() {
           <HugeiconsIcon
             icon={SearchIcon}
             size={20}
-            color={"#b0b0b0"}
+            color={Colors.text.light}
             style={{ marginRight: 8 }}
           />
           <CustomInputText
@@ -149,7 +150,7 @@ function Index() {
         <HugeiconsIcon
           icon={Add01Icon}
           size={24}
-          color="#fff"
+          color={Colors.white}
         />
         <CustomText style={styles.createButtonText}>Create Task</CustomText>
       </TouchableOpacity>
@@ -162,12 +163,12 @@ export default Index;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f7faff",
+    backgroundColor: Colors.background,
     paddingHorizontal: 0,
     paddingTop: 0,
   },
   topSection: {
-    backgroundColor: "#2563eb",
+    backgroundColor: Colors.primary,
     paddingTop: 20,
     paddingBottom: 32,
     paddingHorizontal: 24,
@@ -183,11 +184,11 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
-    backgroundColor: "#fff",
+    backgroundColor: Colors.white,
     alignItems: "center",
     justifyContent: "center",
     marginLeft: 8,
-    shadowColor: "#000",
+    shadowColor: Colors.shadow,
     shadowOpacity: 0.06,
     shadowRadius: 2,
     elevation: 1,
@@ -201,13 +202,13 @@ const styles = StyleSheet.create({
   searchBar: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#fff",
+    backgroundColor: Colors.white,
     borderRadius: 18,
     borderWidth: 1.5,
-    borderColor: "#e5e7eb",
+    borderColor: Colors.border,
     paddingHorizontal: 18,
     height: 48,
-    shadowColor: "#000",
+    shadowColor: Colors.shadow,
     shadowOpacity: 0.04,
     shadowRadius: 2,
     elevation: 1,
@@ -217,7 +218,7 @@ const styles = StyleSheet.create({
   },
 
   searchText: {
-    color: "#6b7280",
+    color: Colors.text.secondary,
     fontSize: 16,
     flex: 1,
     paddingVertical: 0,
@@ -234,21 +235,21 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 16,
     borderRadius: 20,
-    backgroundColor: "#fff",
+    backgroundColor: Colors.white,
     borderWidth: 1,
-    borderColor: "#e5e7eb",
+    borderColor: Colors.border,
   },
   categoryFilterActive: {
-    backgroundColor: "#2563eb",
-    borderColor: "#2563eb",
+    backgroundColor: Colors.primary,
+    borderColor: Colors.primary,
   },
   categoryFilterText: {
     fontSize: 14,
-    color: "#6b7280",
+    color: Colors.text.secondary,
     textTransform: "capitalize",
   },
   categoryFilterTextActive: {
-    color: "#fff",
+    color: Colors.white,
     fontWeight: "600",
   },
   tasksContainer: {
@@ -260,7 +261,7 @@ const styles = StyleSheet.create({
   },
   taskCard: {
     marginBottom: 12,
-    backgroundColor: "#fff",
+    backgroundColor: Colors.white,
   },
   taskHeader: {
     flexDirection: "row",
@@ -273,14 +274,14 @@ const styles = StyleSheet.create({
   },
   taskTitle: {
     marginBottom: 4,
-    color: "#1f2937",
+    color: Colors.text.primary,
   },
   taskTime: {
-    color: "#6b7280",
+    color: Colors.text.secondary,
     fontSize: 14,
   },
   taskDescription: {
-    color: "#4b5563",
+    color: Colors.text.tertiary,
     marginBottom: 8,
     fontSize: 14,
   },
@@ -288,12 +289,12 @@ const styles = StyleSheet.create({
     width: 30,
     height: 30,
     borderRadius: 15,
-    backgroundColor: "#fee2e2",
+    backgroundColor: Colors.danger.background,
     alignItems: "center",
     justifyContent: "center",
   },
   deleteText: {
-    color: "#dc2626",
+    color: Colors.danger.text,
     fontSize: 20,
     fontWeight: "bold",
   },
@@ -305,17 +306,17 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   categoryPersonal: {
-    backgroundColor: "#dbeafe",
+    backgroundColor: Colors.categories.personal,
   },
   categoryWork: {
-    backgroundColor: "#fef3c7",
+    backgroundColor: Colors.categories.work,
   },
   categoryShopping: {
-    backgroundColor: "#e9d5ff",
+    backgroundColor: Colors.categories.shopping,
   },
   categoryText: {
     fontSize: 12,
-    color: "#4b5563",
+    color: Colors.text.tertiary,
     textTransform: "capitalize",
     fontWeight: "500",
   },
@@ -326,7 +327,7 @@ const styles = StyleSheet.create({
     paddingVertical: 60,
   },
   emptyText: {
-    color: "#9ca3af",
+    color: Colors.text.light,
     textAlign: "center",
   },
   createButton: {
@@ -334,13 +335,13 @@ const styles = StyleSheet.create({
     bottom: 24,
     right: 24,
     left: 24,
-    backgroundColor: "#2563eb",
+    backgroundColor: Colors.primary,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
     paddingVertical: 16,
     borderRadius: 12,
-    shadowColor: "#000",
+    shadowColor: Colors.shadow,
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
     shadowRadius: 8,
@@ -348,7 +349,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   createButtonText: {
-    color: "#fff",
+    color: Colors.white,
     fontSize: 16,
     fontWeight: "600",
   },

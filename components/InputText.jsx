@@ -1,9 +1,11 @@
 import { StyleSheet, TextInput } from "react-native";
+import { Colors } from "../constants/Colors";
 
-const CustomInputText = ({ placeholder, placeHolder, style, value, onChangeText, ...props }) => (
+const CustomInputText = ({ placeholder, style, value, onChangeText, ...props }) => (
   <TextInput
     style={[styles.input, style]}
-    placeholder={placeholder || placeHolder}
+    placeholder={placeholder}
+    placeholderTextColor={Colors.text.placeholder}
     value={value}
     onChangeText={onChangeText}
     {...props}
@@ -18,7 +20,8 @@ const styles = StyleSheet.create({
     padding: 10,
     marginVertical: 8,
     fontSize: 16,
-    backgroundColor: "#fff",
+    backgroundColor: Colors.white,
+    color: Colors.text.primary,
   },
 });
 

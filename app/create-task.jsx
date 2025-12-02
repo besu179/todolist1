@@ -1,6 +1,11 @@
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
-import { SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import CustomButton from '../components/Button';
+import CustomInputText from '../components/InputText';
+import CustomText from '../components/Text';
+import { Colors } from '../constants/Colors';
 import { useTasks } from './TasksContext';
 
 export default function CreateTask() {
@@ -43,26 +48,24 @@ export default function CreateTask() {
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()}>
-          <Text style={styles.backButton}>←</Text>
+          <CustomText style={styles.backButton}>←</CustomText>
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Create New Task</Text>
+        <CustomText variant="h2" style={styles.headerTitle}>Create New Task</CustomText>
       </View>
 
       {/* Form */}
       <View style={styles.form}>
         <View style={styles.inputGroup}>
-          <Text style={styles.label}>Task Name</Text>
-          <TextInput
-            style={styles.input}
+          <CustomText style={styles.label}>Task Name</CustomText>
+          <CustomInputText
             placeholder="Task Name"
-            placeholderTextColor="#888"
             value={name}
             onChangeText={setName}
           />
         </View>
 
         <View style={styles.inputGroup}>
-          <Text style={styles.label}>Category</Text>
+          <CustomText style={styles.label}>Category</CustomText>
           <View style={styles.categoryContainer}>
             {categories.map((cat, idx) => (
               <TouchableOpacity
@@ -74,21 +77,20 @@ export default function CreateTask() {
                 ]}
                 onPress={() => setCategory(cat.id)}
               >
-                <Text style={[
+                <CustomText style={[
                   styles.categoryText,
                   category === cat.id && styles.categoryTextActive
                 ]}>
                   {cat.label}
-                </Text>
+                </CustomText>
               </TouchableOpacity>
             ))}
           </View>
         </View>
 
         <View style={styles.inputGroup}>
-          <Text style={styles.label}>Date & Time</Text>
-          <TextInput
-            style={styles.input}
+          <CustomText style={styles.label}>Date & Time</CustomText>
+          <CustomInputText
             value={getCurrentDate()}
             editable={false}
           />
@@ -96,22 +98,18 @@ export default function CreateTask() {
 
         <View style={styles.timeContainer}>
           <View style={[styles.inputGroup, { flex: 1, marginRight: 10 }]}>
-            <Text style={styles.label}>Start time</Text>
-            <TextInput
-              style={styles.input}
+            <CustomText style={styles.label}>Start time</CustomText>
+            <CustomInputText
               placeholder="09:00 AM"
-              placeholderTextColor="#888"
               value={startTime}
               onChangeText={setStartTime}
             />
           </View>
 
           <View style={[styles.inputGroup, { flex: 1, marginLeft: 10 }]}>
-            <Text style={styles.label}>End time</Text>
-            <TextInput
-              style={styles.input}
+            <CustomText style={styles.label}>End time</CustomText>
+            <CustomInputText
               placeholder="11:00 AM"
-              placeholderTextColor="#888"
               value={endTime}
               onChangeText={setEndTime}
             />
@@ -119,11 +117,10 @@ export default function CreateTask() {
         </View>
 
         <View style={styles.inputGroup}>
-          <Text style={styles.label}>Description</Text>
-          <TextInput
-            style={[styles.input, styles.descriptionInput]}
+          <CustomText style={styles.label}>Description</CustomText>
+          <CustomInputText
+            style={styles.descriptionInput}
             placeholder="Description"
-            placeholderTextColor="#888"
             multiline
             value={description}
             onChangeText={setDescription}
@@ -131,9 +128,7 @@ export default function CreateTask() {
         </View>
       </View>
 
-      <TouchableOpacity style={styles.createButton} onPress={onCreate}>
-        <Text style={styles.createButtonText}>Create Task</Text>
-      </TouchableOpacity>
+      <CustomButton title="Create Task" onPress={onCreate} />
     </SafeAreaView>
   );
 }
@@ -141,7 +136,7 @@ export default function CreateTask() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.background,
     padding: 20,
   },
   header: {
@@ -152,6 +147,7 @@ const styles = StyleSheet.create({
   backButton: {
     fontSize: 24,
     marginRight: 15,
+    color: Colors.text.primary,
   },
   headerTitle: {
     fontSize: 20,
@@ -165,33 +161,30 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 16,
-    marginBottom: 10,
-    color: '#333',
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: '#ddd',
-    borderRadius: 10,
-    padding: 15,
-    fontSize: 16,
+    marginBottom: 5,
+    color: Colors.text.primary,
   },
   categoryContainer: {
     flexDirection: 'row',
+    marginTop: 5,
   },
   categoryButton: {
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 20,
-    backgroundColor: '#f0f0f0',
+    backgroundColor: Colors.white,
+    borderWidth: 1,
+    borderColor: Colors.border,
   },
   categoryButtonActive: {
-    backgroundColor: '#2196F3',
+    backgroundColor: Colors.primary,
+    borderColor: Colors.primary,
   },
   categoryText: {
-    color: '#666',
+    color: Colors.text.secondary,
   },
   categoryTextActive: {
-    color: '#fff',
+    color: Colors.white,
   },
   timeContainer: {
     flexDirection: 'row',
@@ -199,16 +192,5 @@ const styles = StyleSheet.create({
   descriptionInput: {
     height: 100,
     textAlignVertical: 'top',
-  },
-  createButton: {
-    backgroundColor: '#2196F3',
-    padding: 15,
-    borderRadius: 10,
-    alignItems: 'center',
-  },
-  createButtonText: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold',
   },
 });
