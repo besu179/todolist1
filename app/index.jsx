@@ -118,6 +118,7 @@ function Index() {
               {category}
             </CustomText>
           </TouchableOpacity>
+          
         ))}
       </ScrollView>
 
@@ -152,7 +153,6 @@ function Index() {
           size={24}
           color={Colors.white}
         />
-        <CustomText style={styles.createButtonText}>Create Task</CustomText>
       </TouchableOpacity>
     </View>
   );
@@ -229,9 +229,11 @@ const styles = StyleSheet.create({
   },
   categoryContainer: {
     paddingHorizontal: 24,
-    gap: 10,
+    gap: 20,
+    marginBottom: -2000
   },
   categoryFilter: {
+    height: 36,
     paddingVertical: 8,
     paddingHorizontal: 16,
     borderRadius: 20,
@@ -255,6 +257,7 @@ const styles = StyleSheet.create({
   tasksContainer: {
     flex: 1,
     paddingHorizontal: 24,
+    marginTop: -440
   },
   tasksList: {
     paddingBottom: 100,
@@ -331,23 +334,22 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   createButton: {
-    position: "absolute",
-    bottom: 24,
-    right: 24,
-    left: 24,
-    backgroundColor: Colors.primary,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    paddingVertical: 16,
-    borderRadius: 12,
-    shadowColor: Colors.shadow,
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
-    elevation: 8,
-    gap: 8,
-  },
+  position: "absolute",
+  bottom: 16,
+  right: 16,
+  width: 50,  // reduced from 60
+  height: 50, // reduced from 60
+  borderRadius: 25, // adjusted to maintain perfect circle
+  backgroundColor: Colors.primary,
+  alignItems: "center",
+  justifyContent: "center",
+  shadowColor: Colors.shadow,
+  shadowOffset: { width: 0, height: 2 },
+  shadowOpacity: 0.25,
+  shadowRadius: 4,
+  elevation: 5,
+},
+
   createButtonText: {
     color: Colors.white,
     fontSize: 16,

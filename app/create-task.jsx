@@ -5,7 +5,6 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import CustomButton from '../components/Button';
 import CustomInputText from '../components/InputText';
 import CustomText from '../components/Text';
-import { Colors } from '../constants/Colors';
 import { useTasks } from './TasksContext';
 
 export default function CreateTask() {
@@ -136,61 +135,71 @@ export default function CreateTask() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.background,
-    padding: 20,
+    backgroundColor: "#f7faff",
+    paddingHorizontal: 24,
+    paddingTop: 16,
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 30,
+    marginBottom: 32,
+    paddingTop: 8,
   },
   backButton: {
     fontSize: 24,
-    marginRight: 15,
-    color: Colors.text.primary,
+    marginRight: 16,
+    color: "#2563eb",
   },
   headerTitle: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: '600',
+    color: "#222",
   },
   form: {
     flex: 1,
+    paddingBottom: 24,
   },
   inputGroup: {
-    marginBottom: 20,
+    marginBottom: 24,
   },
   label: {
     fontSize: 16,
-    marginBottom: 5,
-    color: Colors.text.primary,
+    fontWeight: '500',
+    color: "#374151",
+    marginBottom: 8,
   },
   categoryContainer: {
     flexDirection: 'row',
-    marginTop: 5,
+    flexWrap: 'wrap',
   },
   categoryButton: {
-    paddingVertical: 10,
-    paddingHorizontal: 20,
+    paddingVertical: 8,
+    paddingHorizontal: 16,
     borderRadius: 20,
-    backgroundColor: Colors.white,
+    backgroundColor: "#fff",
     borderWidth: 1,
-    borderColor: Colors.border,
+    borderColor: "#e5e7eb",
   },
   categoryButtonActive: {
-    backgroundColor: Colors.primary,
-    borderColor: Colors.primary,
+    backgroundColor: "#2563eb",
+    borderColor: "#2563eb",
   },
   categoryText: {
-    color: Colors.text.secondary,
+    fontSize: 14,
+    color: "#6b7280",
+    textTransform: 'capitalize',
   },
   categoryTextActive: {
-    color: Colors.white,
+    color: "#fff",
+    fontWeight: '600',
   },
   timeContainer: {
     flexDirection: 'row',
+    marginBottom: 24,
   },
   descriptionInput: {
-    height: 100,
+    height: 120,
     textAlignVertical: 'top',
-  },
+    paddingTop: 12,
+  }
 });
